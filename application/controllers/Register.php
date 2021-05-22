@@ -59,8 +59,9 @@ class Register extends CI_Controller {
       /* Delete this column on production */
 
       unset($insert['confirm_password']);
-      if($this->Common_Model->insert('organizations', $insert)){
-        $this->send_verification_email();
+      $organizationId = $this->Common_Model->insert('organizations', $insert);
+      if($organizationId){
+        $this->send_verification_email($organizationId);
 
         $response['responseMessage'] = $this->Common_Model->success('Please check your e-mail for completing the joining process.');
         $response['status'] = 1;
