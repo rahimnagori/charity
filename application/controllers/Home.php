@@ -32,7 +32,6 @@ class Home extends CI_Controller {
 
   public function index(){
     $pageData = $this->get_userdata();
-    $pageData['services'] = $this->Common_Model->fetch_records('services', array('is_deleted' => 0));
 
     $this->load->view('site/index', $pageData);
   }
