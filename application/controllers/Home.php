@@ -24,51 +24,54 @@ class Home extends CI_Controller {
     $this->load->library('session');
   }
 
-  private function get_userdata(){
-    $businessData = [];
-
-    return array('businessData' => $businessData);
-  }
-
   public function index(){
-    $pageData = $this->get_userdata();
+    $pageData = $this->Common_Model->get_userdata();
 
     $this->load->view('site/index', $pageData);
   }
 
   public function register(){
-    $pageData = $this->get_userdata();
+    $pageData = $this->Common_Model->get_userdata();
+    if(!empty($pageData)){
+      if($pageData['is_logged_in']) redirect('');
+    }
 
     $this->load->view('site/sign-up', $pageData);
   }
 
   public function user_login(){
-    $pageData = $this->get_userdata();
+    $pageData = $this->Common_Model->get_userdata();
+    if(!empty($pageData)){
+      if($pageData['is_logged_in']) redirect('');
+    }
 
     $this->load->view('site/login', $pageData);
   }
 
   public function reset_password(){
-    $pageData = $this->get_userdata();
+    $pageData = $this->Common_Model->get_userdata();
+    if(!empty($pageData)){
+      if($pageData['is_logged_in']) redirect('');
+    }
 
     $this->load->view('site/reset_password', $pageData);
   }
   /* No need below this */
 
   public function contact(){
-    $pageData = $this->get_userdata();
+    $pageData = $this->Common_Model->get_userdata();
     $this->load->view('site/contact_us', $pageData);
   }
 
   public function about(){
-    $pageData = $this->get_userdata();
+    $pageData = $this->Common_Model->get_userdata();
     $this->load->view('site/include/header', $pageData);
     $this->load->view('site/include/about_us', $pageData);
     $this->load->view('site/include/footer', $pageData);
   }
 
   public function services(){
-    $pageData = $this->get_userdata();
+    $pageData = $this->Common_Model->get_userdata();
     $pageData['services'] = $this->Common_Model->fetch_records('services', array('is_deleted' => 0));
     $this->load->view('site/include/header', $pageData);
     $this->load->view('site/include/services', $pageData);
@@ -76,7 +79,7 @@ class Home extends CI_Controller {
   }
 
   public function service($id){
-    $pageData = $this->get_userdata();
+    $pageData = $this->Common_Model->get_userdata();
     $pageData['serviceDetails'] = $this->Common_Model->fetch_records('services', array('id' => $id, 'is_deleted' => 0), false, true);
     $pageData['serviceImages'] = $this->Common_Model->fetch_records('service_images', array('service_id' => $id, 'is_deleted' => 0));
     $pageData['serviceBrochures'] = $this->Common_Model->fetch_records('service_brochures', array('service_id' => $id, 'is_deleted' => 0));
@@ -99,7 +102,7 @@ class Home extends CI_Controller {
         $adminData = $this->Common_Model->fetch_records('business_details', array('id' => 1));
         $adminData = $adminData[0];
         $subject = 'New request received';
-        $this->Common_Model->send_mail_new($insert['email'], $subject, $insert['query']);
+        $this->Common_Model->send_mail($insert['email'], $subject, $insert['query']);
 
         $responseClass = 'success';
         $responseMessage = 'Request Sent Successfully.';
@@ -122,12 +125,12 @@ class Home extends CI_Controller {
   }
 
   public function community(){
-    $pageData = $this->get_userdata();
+    $pageData = $this->Common_Model->get_userdata();
     $this->load->view('site/community', $pageData);
   }
 
   public function sounds($id){
-    $pageData = $this->get_userdata();
+    $pageData = $this->Common_Model->get_userdata();
     $where['id'] = $id;
     $pageData['categoryDetails'] = $this->Common_Model->fetch_records('categories', $where, false, true);
     if($pageData['categoryDetails']['parent_category'] != 0){
@@ -143,7 +146,7 @@ class Home extends CI_Controller {
   }
 
   public function sound_details($id){
-    $pageData = $this->get_userdata();
+    $pageData = $this->Common_Model->get_userdata();
 
     $where['id'] = $id;
     $pageData['categoryDetails'] = $this->Common_Model->fetch_records('categories', $where, false, true);
@@ -179,7 +182,7 @@ class Home extends CI_Controller {
 
   public function blogs($id){
     if($id != 1 && $id != 2) redirect('Blogs/1');
-    $pageData = $this->get_userdata();
+    $pageData = $this->Common_Model->get_userdata();
     $where['is_deleted'] = 0;
     $where['blog_category'] = $id;
     $pageData['blogs'] = $this->Common_Model->fetch_records('blogs', $where, false, false, 'id');
@@ -187,7 +190,7 @@ class Home extends CI_Controller {
   }
 
   public function blog_details($id){
-    $pageData = $this->get_userdata();
+    $pageData = $this->Common_Model->get_userdata();
     $where['is_deleted'] = 0;
     $where['id'] = $id;
     $pageData['blogDetails'] = $this->Common_Model->fetch_records('blogs', $where, false, true);
@@ -202,7 +205,7 @@ class Home extends CI_Controller {
   }
 
   public function collections($id){
-    $pageData = $this->get_userdata();
+    $pageData = $this->Common_Model->get_userdata();
     $where['id'] = $id;
     $pageData['categoryDetails'] = $this->Common_Model->fetch_records('categories', $where, false, true);
     if($pageData['categoryDetails']['parent_category'] == 0){
@@ -221,7 +224,7 @@ class Home extends CI_Controller {
   }
 
   public function collection_details($id){
-    $pageData = $this->get_userdata();
+    $pageData = $this->Common_Model->get_userdata();
 
     $pageData['selectedSound'] = $this->session->flashdata('selected_sound');
     $pageData['downloaded'] = ($pageData['selectedSound']) ? 1 : 0;
@@ -265,7 +268,7 @@ class Home extends CI_Controller {
   }
 
   public function get_collection_sounds(){
-    $pageData = $this->get_userdata();
+    $pageData = $this->Common_Model->get_userdata();
 
     $pageData['collection_sound_type'] = 0;
     $whereSound['sound_collection_id'] = $this->input->post('collection_id');
@@ -346,47 +349,47 @@ class Home extends CI_Controller {
   }
 
   public function faqs(){
-    $pageData = $this->get_userdata();
+    $pageData = $this->Common_Model->get_userdata();
     $this->load->view('site/faqs', $pageData);
   }
 
   public function terms(){
-    $pageData = $this->get_userdata();
+    $pageData = $this->Common_Model->get_userdata();
     $this->load->view('site/terms_page', $pageData);
   }
 
   public function payment(){
-    $pageData = $this->get_userdata();
+    $pageData = $this->Common_Model->get_userdata();
     $this->load->view('site/payment_option', $pageData);
   }
 
   public function tips(){
-    $pageData = $this->get_userdata();
+    $pageData = $this->Common_Model->get_userdata();
     $this->load->view('site/booking_tips');
   }
 
   public function works(){
-    $pageData = $this->get_userdata();
+    $pageData = $this->Common_Model->get_userdata();
     $this->load->view('site/how_it_works', $pageData);
   }
 
   public function profile(){
-    $pageData = $this->get_userdata();
+    $pageData = $this->Common_Model->get_userdata();
     $this->load->view('site/myprofile', $pageData);
   }
 
   public function partner(){
-    $pageData = $this->get_userdata();
+    $pageData = $this->Common_Model->get_userdata();
     $this->load->view('site/partner');
   }
 
   public function policy(){
-    $pageData = $this->get_userdata();
+    $pageData = $this->Common_Model->get_userdata();
     $this->load->view('site/policy', $pageData);
   }
 
   public function price(){
-    $pageData = $this->get_userdata();
+    $pageData = $this->Common_Model->get_userdata();
     $this->load->view('site/price', $pageData);
   }
 

@@ -56,6 +56,11 @@ $route['translate_uri_dashes'] = FALSE;
 /* Organization Route */
 $route['Join'] = 'Home/register';
 $route['Organization_Join'] = 'Register/organization';
+$route['Organization_Login'] = 'Organizations/login';
+$route['Verify/(:any)/(:any)'] = 'Organizations/email_verification/$1/$2';
+$route['Verify'] = 'Organizations/email_verified';
+$route['Resend-Email-Verification'] = 'Register/resend_verification_email';
+$route['Organization-Profile'] = 'Organizations';
 
 /* Admin Route */
 
@@ -92,8 +97,6 @@ $route['Works'] = 'Home/works';
 $route['Partner'] = 'Home/partner';
 $route['Policy'] = 'Home/policy';
 $route['Price'] = 'Home/price';
-$route['Verify/(:any)/(:any)'] = 'Users/email_verification/$1/$2';
-$route['Verify'] = 'Users/email_verified';
 $route['Email-Verify'] = 'Profile/verify';
 $route['Edit-Profile'] = 'Profile/edit';
 $route['Plan'] = 'Plans';

@@ -89,5 +89,46 @@ class Common_Model extends CI_Model {
 
   }
 
+  public function update_user_login($table, $user_id, $action_type = 0){
+    $update['ip_address'] = $_SERVER['REMOTE_ADDR'];
+    $update['last_login'] = date('Y-m-d H:i:s');
+    $update['is_online'] = 1;
+    if($action_type){
+      $this->update($table, array('id' => $user_id), $update);
+    }
+    $insert['user_id'] = $user_id;
+    $insert['ip_address'] = $update['ip_address'];
+    $insert['is_organization'] = ($table == 'organizations') ? 1 : 0;
+    $insert['action_type'] = $action_type;
+    $insert['created'] = $update['last_login'];
+    
+    $this->insert('user_ips', $insert);
+  }
+
+  public function get_userdata(){
+    $pageData = [];
+
+    $pageData['is_logged_in'] = ($this->session->userdata('is_logged_in')) ? 1 : 0;
+    if($pageData['is_logged_in']){
+      $pageData['is_organization'] = ($this->session->userdata('is_organization')) ? 1 : 0;
+      if($pageData['is_organization']){
+        /* Organization */
+        $orgData = $this->session->userdata('organizationData');
+        $organizationDetails = $this->Common_Model->fetch_records('organizations', array('id' => $orgData['id']), false, true);
+        $organization_data['id'] = $organizationDetails['id'];
+        $organization_data['first_name'] = $organizationDetails['first_name'];
+        $organization_data['last_name'] = $organizationDetails['last_name'];
+        $organization_data['organization_name'] = $organizationDetails['organization_name'];
+        $organization_data['is_email_verified'] = $organizationDetails['is_email_verified'];
+        $pageData['organization_data'] = $organization_data;
+      }else{
+        /* User */
+        
+      }
+    }
+    return $pageData;
+
+  }
+
 }
 ?>

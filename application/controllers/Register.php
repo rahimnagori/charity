@@ -24,19 +24,8 @@ class Register extends CI_Controller {
     $this->load->library('session');
   }
 
-  private function get_userdata(){
-    $businessData = $this->Common_Model->fetch_records('business_details');
-    $businessData = $businessData[0];
-
-    return array('businessData' => $businessData);
-  }
-
   public function index(){
     redirect('');
-    $pageData = $this->get_userdata();
-    $pageData['services'] = $this->Common_Model->fetch_records('services', array('is_deleted' => 0));
-
-    $this->load->view('site/index', $pageData);
   }
 
   public function organization(){
@@ -55,8 +44,8 @@ class Register extends CI_Controller {
       $insert['created'] = $insert['updated'] = date('Y-m-d H:i:s');
 
       $insert['pass'] = $insert['password'];
-      $insert['password'] = md5($insert['password']);
       /* Delete this column on production */
+      $insert['password'] = md5($insert['password']);
 
       unset($insert['confirm_password']);
       $organizationId = $this->Common_Model->insert('organizations', $insert);
@@ -72,12 +61,28 @@ class Register extends CI_Controller {
     }
     echo json_encode($response);
   }
-  
+
+  public function resend_verification_email(){
+    $pageData = $this->Common_Model->get_userdata();
+
+    $response['responseMessage'] = $this->Common_Model->error('Server error, please try again later');
+    $response['status'] = 0;
+
+    if($pageData['is_logged_in'] && $pageData['is_organization']){
+      $organization_id = $pageData['organization_data']['id'];
+    }
+    if($organization_id){
+      $response['status'] = 1;
+      $this->send_verification_email($organization_id, true);
+      $response['responseMessage'] = $this->Common_Model->success('Verification email sent successfully.');
+    }
+    echo json_encode($response);
+  }
+
   private function send_verification_email($organization_id, $resend = false){
     $userdata = $this->Common_Model->fetch_records('organizations', array('id' => $organization_id), false, true);
     if($userdata){
       if($userdata['is_email_verified'] == 0){
-      // if(true){
         $token = rand(100000, 999999);
         $update['token'] = $token;
         $this->Common_Model->update('organizations', array('id' => $organization_id), $update);
