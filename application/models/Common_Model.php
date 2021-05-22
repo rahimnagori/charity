@@ -72,14 +72,20 @@ class Common_Model extends CI_Model {
 
     $pageData['body'] = $body;
     $pageData['PROJECT'] = $PROJECT;
-    // $msg = $this->load->view('site/include/email_template', $pageData, true);
-    $this->load->view('site/include/email_template', $pageData); /* Debug */
+    $msg = $this->load->view('site/include/email_template', $pageData, true);
+    // $this->load->view('site/include/email_template', $pageData); /* Debug */
 
-    // if($attachment){
-      // $this->email->attach($attachment);
-    // }
-    // $this->email->message($msg);
-    // return ($this->email->send()) ? 1 : 0;
+    if($attachment){
+      $this->email->attach($attachment);
+    }
+    $this->email->message($msg);
+    try{
+      $this->email->send();
+      return 1;
+    }catch(Exception $e){
+      // echo $e->getMessage(); die;
+      return 0;
+    }
 
   }
 
