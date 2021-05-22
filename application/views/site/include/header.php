@@ -53,7 +53,7 @@
 
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <a href="#">Home</a>
+          <a href="<?=site_url();?>">Home</a>
         </li>
         <li>
           <a href="#">About</a>
@@ -65,7 +65,7 @@
           <a href="#">Contact Us</a>
         </li>
         <li>
-          <a href="#">Log In</a>
+          <a href="<?=site_url('Login');?>">Log In</a>
         </li>
         <li class="Sign_top"><a href="<?=site_url('Signup');?>" class="btn btn_theme">Sign Up</a></li>
 

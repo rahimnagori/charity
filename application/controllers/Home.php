@@ -41,6 +41,18 @@ class Home extends CI_Controller {
 
     $this->load->view('site/sign-up', $pageData);
   }
+
+  public function user_login(){
+    $pageData = $this->get_userdata();
+
+    $this->load->view('site/login', $pageData);
+  }
+
+  public function reset_password(){
+    $pageData = $this->get_userdata();
+
+    $this->load->view('site/reset_password', $pageData);
+  }
   /* No need below this */
 
   public function contact(){

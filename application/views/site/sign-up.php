@@ -108,7 +108,7 @@
       </div>
       <div class="donit">
         <p>
-          if you have account? <a href="<?=site_url();?>">Login</a>
+          if you have account? <a href="<?=site_url('Login');?>">Login</a>
         </p>
       </div>
     </div>

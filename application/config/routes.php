@@ -67,7 +67,8 @@ $route['Signup'] = 'Home/register';
 $route['test'] = 'Home/test_function';
 
 $route['Login'] = 'Home/user_login';
-$route['Request'] = 'Home/user_login';
+$route['Forget'] = 'Home/reset_password';
+// $route['Request'] = 'Home/user_login';
 /* Static pages */
 $route['Contact'] = 'Home/contact';
 $route['About'] = 'Home/about';
