@@ -30,6 +30,7 @@ class Organizations extends CI_Controller {
 
     $where['id'] = $pageData['organization_data']['id'];
     $pageData['orgDetails'] = $this->Common_Model->fetch_records('organizations', $where, false,true);
+    $pageData['active_page'] = 'profile';
 
     $this->load->view('site/profile', $pageData);
   }
@@ -120,6 +121,14 @@ class Organizations extends CI_Controller {
     $this->session->unset_userdata('is_organization');
     $this->session->unset_userdata('organizationData');
     redirect('');
+  }
+
+  public function change_password(){
+    $pageData = $this->Common_Model->get_userdata();
+    if($pageData['is_logged_in'] == 0) redirect('');
+    if(!$pageData['is_organization']) redirect('');
+    $pageData['active_page'] = 'password';
+    $this->load->view('site/change_password', $pageData);
   }
 
 }

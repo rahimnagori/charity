@@ -62,6 +62,8 @@ $route['Verify'] = 'Organizations/email_verified';
 $route['Resend-Email-Verification'] = 'Register/resend_verification_email';
 $route['Organization-Profile'] = 'Organizations';
 $route['Organization-Logout'] = 'Organizations/logout';
+$route['Organization-Profile-Update'] = 'Organizations/update';
+$route['Organization-Password'] = 'Organizations/change_password';
 
 /* Admin Route */
 
