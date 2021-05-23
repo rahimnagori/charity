@@ -90,12 +90,12 @@ class Common_Model extends CI_Model {
   }
 
   public function update_user_login($table, $user_id, $action_type = 0){
-    $update['ip_address'] = $_SERVER['REMOTE_ADDR'];
-    $update['last_login'] = date('Y-m-d H:i:s');
-    $update['is_online'] = 1;
     if($action_type){
-      $this->update($table, array('id' => $user_id), $update);
+      $update['last_login'] = date('Y-m-d H:i:s');
     }
+    $update['ip_address'] = $_SERVER['REMOTE_ADDR'];
+    $update['is_online'] = $action_type;
+    $this->update($table, array('id' => $user_id), $update);
     $insert['user_id'] = $user_id;
     $insert['ip_address'] = $update['ip_address'];
     $insert['is_organization'] = ($table == 'organizations') ? 1 : 0;

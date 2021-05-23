@@ -117,6 +117,9 @@ class Organizations extends CI_Controller {
   }
 
   public function logout(){
+    $pageData = $this->Common_Model->get_userdata();
+    $this->Common_Model->update_user_login('organizations', $pageData['organization_data']['id'], 0);
+
     $this->session->unset_userdata('is_logged_in');
     $this->session->unset_userdata('is_organization');
     $this->session->unset_userdata('organizationData');
