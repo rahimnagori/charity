@@ -61,6 +61,7 @@ $route['Verify/(:any)/(:any)'] = 'Organizations/email_verification/$1/$2';
 $route['Verify'] = 'Organizations/email_verified';
 $route['Resend-Email-Verification'] = 'Register/resend_verification_email';
 $route['Organization-Profile'] = 'Organizations';
+$route['Organization-Logout'] = 'Organizations/logout';
 
 /* Admin Route */
 
@@ -100,7 +101,6 @@ $route['Price'] = 'Home/price';
 $route['Email-Verify'] = 'Profile/verify';
 $route['Edit-Profile'] = 'Profile/edit';
 $route['Plan'] = 'Plans';
-$route['Logout'] = 'Users/logout';
 
 /* Site Page */
 

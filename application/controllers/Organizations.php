@@ -25,10 +25,10 @@ class Organizations extends CI_Controller {
   }
 
   public function index(){
-    $checkOrganization = $this->Common_Model->get_userdata();
-    if(!$checkOrganization['is_logged_in'] && !$checkOrganization['is_organization']) redirect('');
+    $pageData = $this->Common_Model->get_userdata();
+    if(!$pageData['is_logged_in'] && !$pageData['is_organization']) redirect('');
 
-    $where['id'] = $checkOrganization['organization_data']['id'];
+    $where['id'] = $pageData['organization_data']['id'];
     $pageData['orgDetails'] = $this->Common_Model->fetch_records('organizations', $where, false,true);
 
     $this->load->view('site/profile', $pageData);
@@ -59,7 +59,7 @@ class Organizations extends CI_Controller {
         $this->session->set_userdata('organizationData', $organizationData);
         $response['organizationData'] = $organizationData;
         $response['status'] = 1;
-        $response['redirect'] = ($organization_data['is_email_verified'] == 1) ? 'Profile' : 'Verify';
+        $response['redirect'] = ($organization_data['is_email_verified'] == 1) ? 'Organization-Profile' : 'Verify';
       }else{
         $response['status'] = 2;
         $response['responseMessage'] = $this->Common_Model->error('Either email or password is incorrect.');
@@ -113,6 +113,13 @@ class Organizations extends CI_Controller {
 
     $pageData['userdata'] = $this->Common_Model->fetch_records('organizations', array('id' => $organization_id), false, true);
     $this->load->view('site/verify', $pageData);
+  }
+
+  public function logout(){
+    $this->session->unset_userdata('is_logged_in');
+    $this->session->unset_userdata('is_organization');
+    $this->session->unset_userdata('organizationData');
+    redirect('');
   }
 
 }

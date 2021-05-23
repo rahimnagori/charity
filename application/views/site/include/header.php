@@ -64,32 +64,33 @@
         <li>
           <a href="#">Contact Us</a>
         </li>
-        <li>
-          <a href="<?=site_url('Login');?>">Log In</a>
-        </li>
-        <li class="Sign_top"><a href="<?=site_url('Signup');?>" class="btn btn_theme">Sign Up</a></li>
-
         
-        <!-- <li class="user_dropp">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-         <span class="img_radiuus">
-                                <img src="<?=site_url('assets/site/');?>img/img_3.png">
-                             User Name
-            
-          </span>
-        </a>
-
-          <ul class="dropdown-menu">
-
-    <li><a href="#">Profile</a></li>
-
-    <li><a href="#"><i class="fa fa-sign-out"></i> Logout</a></li>
-
-  </ul>
-
-        </li> -->
-
-      </ul>     
+        <?php
+          if($is_logged_in && $is_logged_in == 1){
+        ?>
+            <li class="user_dropp">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="img_radiuus">
+                  <img src="<?=site_url('assets/site/');?>img/img_3.png">
+                User Name
+                </span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Profile</a></li>
+                <li><a href="<?=site_url('Organization-Logout');?>"><i class="fa fa-sign-out"></i> Logout</a></li>
+              </ul>
+            </li>
+        <?php
+          }else{
+        ?>
+            <li>
+              <a href="<?=site_url('Login');?>">Log In</a>
+            </li>
+            <li class="Sign_top"><a href="<?=site_url('Signup');?>" class="btn btn_theme">Sign Up</a></li>
+        <?php
+          }
+        ?>
+      </ul>
 
     </div>
 
