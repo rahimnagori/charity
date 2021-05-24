@@ -64,6 +64,7 @@ $route['Organization-Profile'] = 'Organizations';
 $route['Organization-Logout'] = 'Organizations/logout';
 $route['Organization-Profile-Update'] = 'Organizations/update';
 $route['Organization-Password'] = 'Organizations/change_password';
+$route['Organization-Password-Update'] = 'Organizations/password_update';
 
 /* Admin Route */
 

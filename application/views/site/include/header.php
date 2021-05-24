@@ -76,7 +76,7 @@
                 </span>
               </a>
               <ul class="dropdown-menu">
-                <li><a href="#">Profile</a></li>
+                <li><a href="<?=site_url('Organization-Profile');?>">Profile</a></li>
                 <li><a href="<?=site_url('Organization-Logout');?>"><i class="fa fa-sign-out"></i> Logout</a></li>
               </ul>
             </li>

@@ -134,4 +134,36 @@ class Organizations extends CI_Controller {
     $this->load->view('site/change_password', $pageData);
   }
 
+  public function password_update(){
+    $response['status'] = 0;
+
+    $this->load->helper(array('form', 'url'));
+    $this->load->library('form_validation');
+
+    $this->form_validation->set_rules('old_password', 'Old Password', 'trim|required');
+    $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[8]');
+    $this->form_validation->set_rules('confirm_password', 'Confirm Password', 'trim|required|matches[password]');
+    if ($this->form_validation->run()){
+      $pageData = $this->Common_Model->get_userdata();
+      $where['id'] = $pageData['organization_data']['id'];
+      $organization_data = $this->Common_Model->fetch_records('organizations', array('id' => $where['id']), false, true);
+
+      $post = $this->input->post();
+      if(md5($post['old_password']) == $organization_data['password']){
+        $update['password'] = md5($post['password']);
+        if($this->Common_Model->update('organizations', $where, $update)){
+          $response['status'] = 1;
+          $response['responseMessage'] = $this->Common_Model->success('Password updated successfully.');
+        }
+      }else{
+        $response['status'] = 2;
+        $response['responseMessage'] = $this->Common_Model->error('Old password is not correct.');
+      }
+    }else{
+      $response['status'] = 2;
+      $response['responseMessage'] = $this->Common_Model->error(validation_errors());
+    }
+    echo json_encode($response);
+  }
+
 }

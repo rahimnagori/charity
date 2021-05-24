@@ -71,7 +71,7 @@
                 <div class="col-sm-6">
                   <div class="form-group">
                     <label>Teaching</label>
-                    <input type="text" name="teaching_staff" placeholder="teaching_staff" class="form-control" value="" required >
+                    <input type="text" name="teaching_staff" placeholder="Teaching Staff" class="form-control" value="" required >
                   </div>
                 </div>
                 <div class="col-sm-6">
