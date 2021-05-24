@@ -22,7 +22,7 @@
                     <tr>
                       <td align="left" valign="top" style="color:#444;font-size:14px">
                         <?=$body;?>
-                         <p style="margin:0;padding:10px 0px">Kind regards,<br>The <?=$PROJECT;?> Team</p>
+                        <p style="margin:0;padding:10px 0px">Kind regards,<br>The <?=$PROJECT;?> Team</p>
                       </td>
                     </tr>
                   </tbody>

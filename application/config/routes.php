@@ -55,6 +55,9 @@ $route['translate_uri_dashes'] = FALSE;
 
 /* Organization Route */
 $route['Join'] = 'Home/register';
+$route['Login'] = 'Home/user_login';
+$route['Forget'] = 'Home/reset_password';
+
 $route['Organization_Join'] = 'Register/organization';
 $route['Organization_Login'] = 'Organizations/login';
 $route['Verify/(:any)/(:any)'] = 'Organizations/email_verification/$1/$2';
@@ -75,8 +78,6 @@ $route['Signup'] = 'Home/register';
 /* Test */
 $route['test'] = 'Home/test_function';
 
-$route['Login'] = 'Home/user_login';
-$route['Forget'] = 'Home/reset_password';
 // $route['Request'] = 'Home/user_login';
 /* Static pages */
 $route['Contact'] = 'Home/contact';

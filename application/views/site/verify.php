@@ -1,168 +1,165 @@
-<?php
-include_once'include/header.php';
-?>
+<?php include 'include/header.php'; ?>
 
 <style type="text/css">
-.verify {
-    padding: 20px;
-    border-radius: 10px;
-    margin: 20px auto;
-    max-width: 650px;
-    width: 100%;
-    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+   footer{
+      display: none;
+   }
+  .main_nav2{
     background: #fff;
+  }
+  body{
+    background: #f1f1f1;
+  }
+  .ema_viii2 .form_1 {
+  max-width: 650px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px 20px;
+  background: #fff;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.03);
 }
-.g_img img {
-    width: 125px;
-    max-width: 100%;
+.ema_viii2 .form_1 .icon_img img {
+  width: 100px;
+  margin-bottom: 30px;
 }
-h4.email-heading {
-    font-size: 22px;
-    font-weight: 600;
-    margin-top: 15px;
+.heade_login h4 {
+  font-size: 24px;
+  font-family: 'MuktaSB';
+  margin-bottom: 10px;
+  color: #333;
 }
-.verify p {
-    font-size: 16px;
-    width: 100%;
-    margin: 15px 0;
+.ema_viii2 .form_1 p {
+  color: #6a6a6a;
+  font-size: 16px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
 }
-	.pro_img img {
-	width: 250px;
-	height: 250px;
-	object-fit: cover;
-	border-radius: 50%;
-	border: 3px solid #fff;
-	box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+
+.top_bar2 {
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
-.img_counter_banner{
-	min-height: 250px;
+.ligin_us2 ul {
+  float: right;
 }
-.pro_img {
-	margin-top: -150px;
+.ligin_us2 > ul > li {
+  display: inline-block;
+  margin: 0 8px;
 }
-.ftco-section.ftco-counter.img.img_counter2.img_counter_profile {
-	background: #fff !important;
-	box-shadow: 0px 7px 8px rgba(121, 121, 121, 0.14);
-	position: relative;
-	margin-bottom: 0;
+.main_nav2 .ligin_us2 li.user_dropp > a {
+  padding: 8px 0;
+  display: inline-block;
 }
-.ftco-section.ftco-counter.img.img_counter2.img_counter_profile {
-	background: #fff !important;
+.img_radiuus {
+  padding-left: 45px;
+  position: relative;
+  display: inline-block;
 }
-.img_counter_profile .mb-4.community_heading {
-	color: #000 !important;
-	font-size: 28px !important;
-	font-weight: 500;
+.img_radiuus img {
+  border: 1px solid #0c1f38;
+  border-radius: 100%;
+  height: 40px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: -8px;
+  width: 40px;
 }
-.img_counter_profile .subheading {
-	color: #000 !important;
-	padding: 0 !important;
+.ligin_us2 ul {
+  float: right;
 }
-.social {
-	display: flex;
-	flex-wrap: wrap;
+.main_nav2 .ligin_us2 li.user_dropp .dropdown-menu {
+  min-width: 270px;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
 }
-.div1 {
-	margin-right: 20px;
-	font-size: 13px;
-	font-weight: 400;
-	margin-top: 5px;
-	color: #9d9d9d;
+.main_nav2 .ligin_us2 li.user_dropp .dropdown-menu {
+  left: auto;
+  right: 0;
 }
-.div1 i {
-	font-size: 14px;
-	margin-right: 5px;
+.main_nav2 .ligin_us2 li.user_dropp .dropdown-menu li a {
+  padding: 8px 10px;
+  font-size: 16px;
+  border-bottom: 1px solid #e1e1e1;
+  text-align: left;
 }
-.theme_color {
-	color: #572626;
+.main_nav2 .ligin_us2 li.user_dropp .dropdown-menu li a i {
+  font-size: 21px;
+  vertical-align: middle;
 }
-.ftco-section.ftco-counter.img.img_counter2.img_counter_profile.bottom_sec{
-background-color: #f1f1f1 !important;
+.ligin_us2 > ul > li > a {
+  color: #333;
+  font-size: 16px;
 }
-.ftco-section.ftco-counter.img.img_counter2.img_counter_profile.bottom_sec .destination .img {
-	display: block;
-	height: 130px;
-	background-color: #f8faff;
-	border-radius: 15px;
-	box-shadow: 0 6px 8px #0000001c;
+.main_nav2 .ligin_us2 li.user_dropp > a {
+  background: transparent !important;
 }
-.ftco-section.ftco-counter.img.img_counter2.img_counter_profile.bottom_sec .destination .text h3 a {
-	color: #572626;
-	font-weight: 400;
-	font-size: 14px;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	width: 100px;
-	display: block;
+.top_bar2 > .container > .row {
+  display: flex;
+  align-items: center;
 }
-.ftco-section.ftco-counter.img.img_counter2.img_counter_profile.bottom_sec .destination .text {
-	padding: 10px 5px !important;
+.ema_viii2 .form_1 p b,
+ .ema_viii2 .form_1 p a {
+  color: #000;
 }
-.ftco-section.ftco-counter.img.img_counter2.img_counter_profile.bottom_sec .btn.pricing-plan-purchase-btn.download {
-	background: #572626;
-	color: #fff;
-	font-size: 13px !important;
-	font-weight: 500;
-	width: 240px;
-	height: 40px;
-	margin: 0;
+.ema_viii {
+  min-height: calc(100vh - 160px);
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
 }
-.like {
-	float: right;
-	color: #572626;
+.login_page {
+   padding: 40px 0;
 }
-.credit {
-	display: block;
-	height: 30px;
-	border-bottom: 1px solid #ccc;
-	margin-bottom: 15px;
+@media(max-width: 767px){
+  .img_radiuus {
+  font-size: 0;
 }
+}
+
 </style>
 
-<section class="ftco-section ftco-counter img img_counter2 img_counter_profile">
+<div class="login_page sec_pad">
   <div class="container">
-    <div class="row justify-content-center">
-      <div class="container">
-         <div class="verify">
-            <div class="text-center">
-              <?php
-                if($userdata['is_email_verified']){
-              ?>
-                  <div class="alert alert-success alert-dismissible">
-                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                    Thank you: Your Email has been verified successfully.
-                  </div>
-              <?php
-                }else{
-              ?>
-                  <div class="g_img">
-                    <img src="https://bluediamondresearch.com/WEB01/whatido/assets/whatido/img/message_1.png">
-                  </div>
-                  <h4 class="email-heading">Email verification </h4>
-                  <div id="responseMessage"></div>
-                  <p>You need to verify your email address. We've sent an email to <b><u><?=$userdata['email'];?></u></b> to verify your address.</p>
-                  <p>Please click the link in that email to continue.</p>
-                  <p><a href="javascript:void(0);" onclick="resend_verification_link();">Click here</a> to resend verification link.</p>
-              <?php
-                }
-              ?>
-            </div>
-         </div>
+    <div class="ema_viii">
+      <div class="ema_viii2">
+        <div class="form_1">
+          <div class="icon_img">
+            <img src="<?=site_url('assets/site/img/');?>email.png" class="img_r">
+          </div>
+          <div class="heade_login">
+            <h4>Email Verification </h4>
+          </div>
+          <?php
+            if($userdata['is_email_verified']){
+          ?>
+              <div class="msg">
+                <div class="alert alert-success">Success! Your account has been verified successfully.</div>
+              </div>
+          <?php
+            }else{
+          ?>
+              <div id="responseMessage"></div>
+              <p>You need to verify your email address. We've sent an email to <b><u><?=$userdata['email'];?></u></b> to verify your address.</p>
+              <p>Please click the link in that email to continue.</p>
+              <p>Click <b><a href="javascript:void(0);" onclick="resend_verification_link();">here</a></b> to resend verification link.</p>
+          <?php
+            }
+          ?>
+        </div>
       </div>
     </div>
   </div>
-</section>
+</div>
 
-<section class="ftco-section ftco-counter img img_counter2 img_counter_profile bottom_sec">
-  <div class="container">
-    <div class="row justify-content-center"></div>
-  </div>
-</section>
+<?php include 'include/footer.php'; ?>
 
-<?php
-include_once'include/footer.php';
-?>
 
 <script>
   function resend_verification_link() {

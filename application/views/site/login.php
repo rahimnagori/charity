@@ -48,6 +48,7 @@
             </div>
             <div class="row">
               <div class="col-sm-12" id="responseMessage">
+                <?=$this->session->flashdata('email_verified');?>
               </div>
             </div>
             <div class="btnloggib ">

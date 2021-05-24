@@ -27,6 +27,7 @@ class Organizations extends CI_Controller {
   public function index(){
     $pageData = $this->Common_Model->get_userdata();
     if(!$pageData['is_logged_in'] && !$pageData['is_organization']) redirect('');
+    if($pageData['organization_data']['is_email_verified'] != 1) redirect('Verify');
 
     $where['id'] = $pageData['organization_data']['id'];
     $pageData['orgDetails'] = $this->Common_Model->fetch_records('organizations', $where, false,true);
@@ -87,19 +88,13 @@ class Organizations extends CI_Controller {
         $body .= '<p>Congratulations!! your email has been verified successfully. You may now continue using our services.</p>';
         $this->Common_Model->send_mail($to, $subject, $body);
 
-        if($this->session->userdata('user_id')){
+        if($this->session->userdata('is_logged_id')){
           redirect('Verify');
         }else{
           $message = $this->Common_Model->success('Thank you: Your email has been verified successfully. Please login to continue.');
           $this->session->set_flashdata('email_verified', $message);
-          redirect('');
+          redirect('Login');
         }
-        // $this->session->set_userdata('is_user_logged_in', 1);
-        // $this->session->set_userdata('user_id', $userdata['id']);
-        // $this->session->set_userdata('email', $userdata['email']);
-        // $pageData['userdata'] = $userdata;
-        // $pageData['userdata']['is_email_verified'] = $pageData['is_email_verified'] = 1;
-        // $this->load->view('site/verify', $pageData);
       }
     }else{
       redirect('');
