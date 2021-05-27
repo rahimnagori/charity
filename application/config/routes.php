@@ -108,16 +108,23 @@ $route['Plan'] = 'Plans';
 
 /* Site Page */
 
+/* Test Admin Pages */
+$route['Admin'] = 'Test';
+$route['Admin/Login'] = 'Test/login';
+$route['Admin/Profile'] = 'Test/profile';
+$route['Admin/Table'] = 'Test/table';
+/* Test Admin Pages */
+
 /* Admin Pages */
-$route['Admin'] = 'Admin';
-$route['Admin/Dashboard'] = 'Admin_Dashboard';
-$route['Admin/Business'] = 'Admin_Business';
-$route['Admin/Services'] = 'Admin_Services';
-$route['Admin/Image/(:any)'] = 'Admin_Services/Image/$1';
-$route['Admin/Brochures/(:any)'] = 'Admin_Services/Brochure/$1';
-$route['Admin/Contacts'] = 'Admin_Contacts';
-$route['Admin/profile'] = 'Admin_Dashboard/profile';
-$route['Admin/Logout'] = 'Admin/logout';
+// $route['Admin'] = 'Admin';
+// $route['Admin/Dashboard'] = 'Admin_Dashboard';
+// $route['Admin/Business'] = 'Admin_Business';
+// $route['Admin/Services'] = 'Admin_Services';
+// $route['Admin/Image/(:any)'] = 'Admin_Services/Image/$1';
+// $route['Admin/Brochures/(:any)'] = 'Admin_Services/Brochure/$1';
+// $route['Admin/Contacts'] = 'Admin_Contacts';
+// $route['Admin/profile'] = 'Admin_Dashboard/profile';
+// $route['Admin/Logout'] = 'Admin/logout';
 
 
 $route['Admin/Users'] = 'Admin_Users';

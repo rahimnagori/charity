@@ -20,7 +20,6 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
            <i class="la la-user"></i> 
             Dropdown 
-            
           </a>
           <ul class="dropdown-menu">
             <li><a href="#">Action</a></li>
