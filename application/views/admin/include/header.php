@@ -37,7 +37,7 @@
             </a>
             <ul class="dropdown-menu">
               <li><a href="<?=site_url('Admin/Profile');?>"><i class="la la-user"></i>Profile</a></li>
-              <li><a href="<?=site_url('Admin/Login');?>"><i class="la la-sign-out"></i> Logout</a></li>
+              <li><a href="<?=site_url('Admin/Logout');?>"><i class="la la-sign-out"></i> Logout</a></li>
             </ul>
           </li>
         </ul>

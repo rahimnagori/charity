@@ -12,6 +12,9 @@ $('#extent_tbl1').DataTable();
   $(".toggle_us").click(function(){
     $(".sidebar").toggleClass("menu_open");
   });
+
+  const BASE_URL = "<?=site_url();?>";
+  const LOADING = "<i class='fa fa-spin fa-spinner' aria-hidden='true'></i> Processing ... ";
 </script>
 
 </body>

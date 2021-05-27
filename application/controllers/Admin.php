@@ -32,7 +32,7 @@ class Admin extends CI_Controller {
   public function admin_login(){
     $username = trim($this->input->post('email'));
     $password = trim($this->input->post('password'));
-    $where = array('email' => $username, 'password' => $password);
+    $where = array('email' => $username, 'password' => md5($password));
     $usernameLogin = $this->Common_Model->fetch_records('admins', $where, false, true);
     $userdata = [];
     if($usernameLogin){
@@ -42,16 +42,16 @@ class Admin extends CI_Controller {
       $where['id'] = $userdata['id'];
       $update['is_logged_in'] = 1;
       $update['last_login'] = date('Y-m-d H:i:s');
-      // $update['user_id'] = date('Y-m-d H:i:s');
       $this->Common_Model->update('admins', $where, $update);
       $this->session->set_userdata(array('id' => $userdata['id'], 'is_admin_logged_in' => true));
-      $this->session->set_flashdata("responseMessage", "<div class='alert alert-success alert-dismissible' role='alert'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>Success!</strong> Login successfully.</div>");
-      return redirect('Admin/Dashboard');
+      $response['responseMessage'] = $this->Common_Model->success('Login successfully.');
+      $response['redirect'] = 'Admin/Dashboard';
     }else{
-      $this->session->set_flashdata("responseMessage", "<div class='alert alert-danger alert-dismissible' role='alert'>Invalid Username or Password.</div>"); 
-      return redirect('Admin');
+      $response['responseMessage'] = $this->Common_Model->error('Invalid Username or Password.');
     }
+    echo json_encode($response);
   }
+  /* No use below this */
 
   public function change_password(){
     $response['status'] = 0;
