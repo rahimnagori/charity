@@ -1,38 +1,38 @@
  /*slider*/
-$('#slider1').owlCarousel({
-    loop:true,
-    margin:0,
-    nav:true,
-    responsive:{
-        0:{
-            items:1
-        },
-        600:{
-            items:1
-        },
-        1000:{
-            items:1
-        }
-    }
-})
+// $('#slider1').owlCarousel({
+    // loop:true,
+    // margin:0,
+    // nav:true,
+    // responsive:{
+        // 0:{
+            // items:1
+        // },
+        // 600:{
+            // items:1
+        // },
+        // 1000:{
+            // items:1
+        // }
+    // }
+// })
 /*slider close*/
 /*slider*/
-$('#slider2').owlCarousel({
-    loop:true,
-    margin:30,
-    nav:true,
-    responsive:{
-        0:{
-            items:1
-        },
-        600:{
-            items:3
-        },
-        1000:{
-            items:3
-        }
-    }
-})
+// $('#slider2').owlCarousel({
+    // loop:true,
+    // margin:30,
+    // nav:true,
+    // responsive:{
+        // 0:{
+            // items:1
+        // },
+        // 600:{
+            // items:3
+        // },
+        // 1000:{
+            // items:3
+        // }
+    // }
+// })
 /*slider close*/
 
 /*nav*/
