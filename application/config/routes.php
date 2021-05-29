@@ -111,8 +111,11 @@ $route['Plan'] = 'Plans';
 /* Test Admin Pages */
 $route['Admin'] = 'Admin';
 $route['Admin_Login'] = 'Admin/admin_login';
-$route['Admin/Dashboard'] = 'Admin_Dashboard';
-$route['Admin/Profile'] = 'Test/profile';
+$route['Admin-Dashboard'] = 'Admin_Dashboard';
+$route['Admin-Organizations'] = 'Admin_Organizations';
+$route['Admin-Users'] = 'Admin_Users';
+$route['Admin-Employees'] = 'Employees';
+$route['Admin-Profile'] = 'Test/profile';
 $route['Admin/Table'] = 'Test/table';
 
 $route['Admin/Logout'] = 'Admin/logout';

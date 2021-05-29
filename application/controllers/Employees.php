@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Admin_Dashboard extends CI_Controller {
+class Admin_Organizations extends CI_Controller {
 
   public function __construct() {
     parent::__construct();
@@ -18,7 +18,9 @@ class Admin_Dashboard extends CI_Controller {
     $adminData = $this->Common_Model->fetch_records('admins', $where, false, true);
     $pageData['adminData'] = $adminData;
 
-    $this->load->view('admin/dashboard', $pageData);
+    $pageData['organizations'] = $this->Common_Model->fetch_records('organizations');
+
+    $this->load->view('admin/organizations', $pageData);
   }
 
   public function membership(){

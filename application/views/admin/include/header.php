@@ -32,11 +32,11 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span class="img_radiuus">
             <img src="<?=site_url('assets/admin/');?>img/img_1.png">
-            <span class="namee">User Name</span>
+            <span class="namee"><?=$adminData['first_name'] .' ' .$adminData['last_name'];?></span>
             </span>
             </a>
             <ul class="dropdown-menu">
-              <li><a href="<?=site_url('Admin/Profile');?>"><i class="la la-user"></i>Profile</a></li>
+              <li><a href="<?=site_url('Admin-Profile');?>"><i class="la la-user"></i>Profile</a></li>
               <li><a href="<?=site_url('Admin/Logout');?>"><i class="la la-sign-out"></i> Logout</a></li>
             </ul>
           </li>
