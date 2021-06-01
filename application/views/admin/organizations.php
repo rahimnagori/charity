@@ -1,7 +1,7 @@
 <?php include 'include/header.php'; ?>
 
 <div class="conten_web">
-  <h4 class="heading">Dasboard</h4>
+  <h4 class="heading">Organizations</h4>
   <div class="white_box">
     <div class="card_bodym">
       <div class="table-responsive">
@@ -9,7 +9,8 @@
           <thead>
             <tr>
               <th>S.No.</th>
-              <th>Name</th>
+              <th>Organization Name</th>
+              <th>Representative Name</th>
               <th>Email</th>
               <th>Phone</th>
               <th>Last Login</th>
@@ -25,6 +26,7 @@
             ?>
                 <tr>
                   <td><?=$serialNumber + 1;?></td>
+                  <td><?=$organization['organization_name'];?></td>
                   <td><?=$organization['first_name'] .' ' .$organization['last_name'];?></td>
                   <td>
                     <?=$organization['email'];?> 

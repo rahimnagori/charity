@@ -69,7 +69,7 @@
 
 <script>
   $("#email").val('turgut@mailinator.com');
-  $("#password").val('12312312');
+  $("#password").val('12121212');
   function login(e){
     e.preventDefault();
     if(check_form()){

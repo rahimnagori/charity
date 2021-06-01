@@ -16,6 +16,7 @@
       <li><a href="<?=site_url('Admin-Organizations');?>"><i class="fa fa-user"></i> Organizations</a></li>
       <li><a href="<?=site_url('Admin-Employees');?>"><i class="fa fa-user"></i> Employees</a></li>
       <li><a href="<?=site_url('Admin-Users');?>"><i class="fa fa-user"></i> Doners</a></li>
+      <li><a href="<?=site_url('Admin-Document-Types');?>"><i class="fa fa-user"></i> Document Types</a></li>
     </ul>
   </div>
 </div>

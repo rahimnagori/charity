@@ -116,7 +116,8 @@ $route['Admin-Organizations'] = 'Admin_Organizations';
 $route['Admin-Users'] = 'Admin_Users';
 $route['Admin-Employees'] = 'Employees';
 $route['Admin-Profile'] = 'Test/profile';
-$route['Admin/Table'] = 'Test/table';
+$route['Admin-Document-Types'] = 'Documents';
+
 
 $route['Admin/Logout'] = 'Admin/logout';
 /* Test Admin Pages */
