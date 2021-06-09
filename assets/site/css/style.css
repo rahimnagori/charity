@@ -1322,6 +1322,10 @@ table.dataTable.order-column.stripe tbody tr.odd > .sorting_1 {
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
 }
+.sider_barr li h4 {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
 /* The check close */
 
 /*media start*/
