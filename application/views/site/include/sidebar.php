@@ -7,6 +7,7 @@
     <li><a href="account.php"><i class="la la-bank"></i> Account</a></li>
     -->
     <li class="<?=($active_page == 'password') ? 'active' : '';?>" ><a href="<?=site_url('Organization-Password');?>"><i class="la la-unlock"></i> Change Password</a></li>
+    <li class="<?=($active_page == 'password') ? 'active' : '';?>" ><h4><i class="la la-unlock"></i> Change Password</h4></li>
     <li><a href="<?=site_url('Organization-Logout');?>"><i class="la la-sign-out"></i> Logout</a></li>
   </ul>
 </div>

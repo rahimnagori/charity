@@ -36,8 +36,8 @@
                   <td><?=date("d M, Y", strtotime($organization['last_login']));?></td>
                   <td><?=date("d M, Y", strtotime($organization['created']));?></td>
                   <td>
-                    <a href="#" class="btn btn-info btn-sm">Send Mail</a>
-                    <a href="#" class="btn btn-info btn-sm">Edit</a>
+                    <a href="#" class="btn btn_theme2 btn-sm">Send Mail</a>
+                    <a href="#" class="btn btn_theme2 btn-sm">Edit</a>
                     <a href="#" class="btn btn-danger btn-sm">Delete</a>
                   </td>
                 </tr>
