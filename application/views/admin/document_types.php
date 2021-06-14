@@ -42,21 +42,32 @@
 </div>
 
 <!-- Modal -->
-<div id="addDocumentModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
+<div class="modal fade " id="addDocumentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><i class="la la-times-circle"></i></button>
-        <h4 class="modal-title">Modal Header</h4>
+        <h4 class="modal-title">Add Document Type</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="la la-times-circle"></i></span></button>
       </div>
       <div class="modal-body">
-        <p>Some text in the modal.</p>
-      </div>
-      
-    </div>
+        <div class="optio_raddipo">
+          <div class="form-group">
+            <label>Document Type</label>
+            <input type="text" class="form-control" placeholder="" required />
+          </div>
 
+          <div class="form-group">
+            <label class="check ">Mandatory
+            <input type="checkbox" name="Scheduling_dtae">
+            <span class="checkmark"></span>
+            </label>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn_theme2 btn-lg">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
