@@ -31,6 +31,7 @@ class Organizations extends CI_Controller {
 
     $where['id'] = $pageData['organization_data']['id'];
     $pageData['orgDetails'] = $this->Common_Model->fetch_records('organizations', $where, false,true);
+    $pageData['requestDetails'] = $this->Common_Model->fetch_records('organization_requests', array('org_id' => $where['id']), false,true);
     $pageData['active_page'] = 'profile';
 
     $this->load->view('site/profile', $pageData);
@@ -159,6 +160,11 @@ class Organizations extends CI_Controller {
       $response['responseMessage'] = $this->Common_Model->error(validation_errors());
     }
     echo json_encode($response);
+  }
+
+  public function request(){
+    $postData = $this->input->post();
+    echo json_encode($postData);
   }
 
 }

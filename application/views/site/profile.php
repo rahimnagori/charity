@@ -9,7 +9,7 @@
       </div>
       <div class="col-sm-9">
         <div class="right_box">
-          <h4 class="hedding_right">Profile</h4>
+          <h4 class="hedding_right">Profile <small class="pull-right">Please submit request</small></h4>
           <div class="card_bodym">
             <!--
             <div class="balance_detail">
@@ -39,34 +39,35 @@
                 <div class="col-sm-6">
                   <div class="form-group">
                     <label>First Name (Representative)</label>
-                    <input type="text" name="first_name" placeholder="First Name" class="form-control" value="<?=$orgDetails['first_name'];?>" required >
+                    <input type="text" name="organizations['first_name']" placeholder="First Name" class="form-control" value="<?=$orgDetails['first_name'];?>" required >
                   </div>
                 </div>
                 <div class="col-sm-6">
                   <div class="form-group">
                     <label>Last Name (Representative)</label>
-                    <input type="text" name="last_name" placeholder="Last Name" class="form-control" value="<?=$orgDetails['last_name'];?>" required >
+                    <input type="text" name="organizations['last_name']" placeholder="Last Name" class="form-control" value="<?=$orgDetails['last_name'];?>" required >
                   </div>
                 </div>
               </div>
               <div class="form-group">
                 <label>Organization Name</label>
-                <input type="text" name="organization_name" placeholder="Organization Name" class="form-control" value="<?=$orgDetails['organization_name'];?>" required >
+                <input type="text" name="organizations['organization_name']" placeholder="Organization Name" class="form-control" value="<?=$orgDetails['organization_name'];?>" required >
               </div>
               <div class="row">
                 <div class="col-sm-6">
                   <div class="form-group">
                     <label>City</label>
-                    <input type="text" name="state" placeholder="City" class="form-control" value="" required >
+                    <input type="text" name="organization_details['city']" placeholder="City" class="form-control" value="" required >
                   </div>
                 </div>
                 <div class="col-sm-6">
                   <div class="form-group">
                     <label>State</label>
-                    <input type="text" name="city" placeholder="State" class="form-control" value="" required >
+                    <input type="text" name="organization_details['state']" placeholder="State" class="form-control" value="" required >
                   </div>
                 </div>
               </div>
+              <!--
               <div class="row">
                 <div class="col-sm-6">
                   <div class="form-group">
@@ -95,6 +96,16 @@
                   </div>
                 </div>
               </div>
+              -->
+              <label>Upload Document(s)</label> 
+              <div class="row uuss_rowws" id="preview_image_div">
+                <div class="col-sm-2">
+                  <div class="image_uplod1">
+                    <img src="<?=site_url('assets/site/');?>img/icon_us2.png" class="tradup_img1" >
+                    <input type="file" onchange="upload_image(this, 'preview_image');" name="document" accept="image/*, pdf" class="uplldui">
+                  </div>
+                </div>
+              </div>
               <div class="form-group">
                 <label><button class="btn btn_theme2 btn-lg">Submit</button></label>
               </div>
@@ -109,11 +120,12 @@
 <?php include 'include/footer.php'; ?>
 
 <script>
+  let imageSerialNumber = 0;
   function update_form(e){
     e.preventDefault();
     if(check_form()){
       $.ajax({
-        url: BASE_URL + 'Organization-Profile-Update',
+        url: BASE_URL + 'Organization-Submit-Request',
         type: 'POST',
         data: new FormData($('#profileForm')[0]),
         processData: false,
@@ -148,5 +160,25 @@
   function check_form(){
     return true;
     /* Check for valid email and both passwords min8 char */
+  }
+  
+  function upload_image(input, previewId) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        preview_image(e.target.result);
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  function delete_image(imageIndex){
+    $("#" + imageIndex).remove();
+  }
+
+  function preview_image(source){
+    imageSerialNumber++;
+    let imageDiv = "preview_image_" + imageSerialNumber;
+    $("#preview_image_div").prepend(`<div class="col-sm-2" id="${imageDiv}" ><div class="image_uplod1"><img src="${source}" class="tradup_img2" id="preview_image" ><div class="btttponm_psuiui"><button type="button" class="btn btn-danger" onclick="delete_image('${imageDiv}');">X</button></div></div></div>`);
   }
 </script>

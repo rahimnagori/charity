@@ -63,6 +63,7 @@ $route['Organization_Login'] = 'Organizations/login';
 $route['Verify/(:any)/(:any)'] = 'Organizations/email_verification/$1/$2';
 $route['Verify'] = 'Organizations/email_verified';
 $route['Resend-Email-Verification'] = 'Register/resend_verification_email';
+$route['Organization-Submit-Request'] = 'Organizations/request';
 $route['Organization-Profile'] = 'Organizations';
 $route['Organization-Logout'] = 'Organizations/logout';
 $route['Organization-Profile-Update'] = 'Organizations/update';
